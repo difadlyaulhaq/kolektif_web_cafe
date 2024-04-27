@@ -1,9 +1,13 @@
 <?php 
 session_start();
-$page = (isset($_GET['pages'])) ? $_GET['pages'] : "";
-require_once 'core/App.php';
-require_once  'core/Controller.php';
-#require_once '';
+
+$pages = (isset($_GET['pages'])) ? $_GET['pages'] : "";
+// require_once 'core/App.php';
+// require_once 'core/Controller.php';
+// require_once 'View/home/home.php';
+// require_once 'View/ADMIN/Dashboard/Admindashboard.php';
+// require_once 'View/ADMIN/login/Adminlogin.php';
+// require_once 'View/protected/rahasia.php';
 ?>
 
 <head>
@@ -13,16 +17,31 @@ require_once  'core/Controller.php';
 </head>
 
 <body>
-  
+  <nav class="w-full">
+    
+  </nav>
   <div class="p-10">
     <?php
+
       if ($pages == "" || $pages == "home") {
-        include "app\View\home\home.php";
-      } elseif ($pages == "signin") {
+
+        if ( isset( $_SESSION['username'] )) {
+
+          include "View/home/home.php"; // Sesuaikan path
+        
+        } else {
+
+          echo "<script>window.location.href='signin'</script>";
+        
+        }
+      } 
+      
+      
+      elseif ($pages == "signin") {
         if(isset($_SESSION['username'])){
           echo "<script>window.location.href='home'</script>";
         } else {
-          include "views/auth/signin.php";
+          include "View/ADMIN/login/AdminLogin.php"; // Sesuaikan path
         }
       } elseif ($pages == "protected") {
         protected_index();
@@ -30,14 +49,14 @@ require_once  'core/Controller.php';
         session_destroy();
         echo "<script>window.location.href='home'</script>";
       } else if ($pages == "user"){
-        // Call index() from user controller
+        // Panggil index() dari controller user
         user_index();
       } else if ($pages == "about"){
-        include "views/about.php";
+        include "Views/about.php";
       } else if ($pages == "dashboard"){
         dashboard_index();
       } else {
-        include "views/404.php";
+        include "Views/404.php";
       }
     ?>
   </div>

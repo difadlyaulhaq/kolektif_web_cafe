@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    RewriteRule ^login$ app/controller/AuthController.php [L]
+    RewriteRule ^home$ app/init.php?pages=home [L]
+    RewriteRule ^about$ app/init.php?pages=about [L]
+    RewriteRule ^signin$ app/init.php?pages=signin [QSA]
+    RewriteRule ^signup$ app/init.php?pages=signup [L]
+    RewriteRule ^logout$ app/init.php?pages=logout [L]
+    RewriteRule ^protected$ app/init.php?pages=protected [L]
+    RewriteRule ^user$ app/init.php?pages=user [L]
+    RewriteRule ^dashboard$ app/init.php?pages=dashboard [L]
+
+    RewriteRule ^404$ app/init.php?prefix=404 [L]
+
+    Options -Indexes
+</IfModule>
+
+<FilesMatch “\.(php|php\.)$”>
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

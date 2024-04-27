@@ -1,3 +1,7 @@
+<?php
+var_dump($_SESSION);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +9,7 @@
 </head>
 <body>
     <h2>Login</h2>
-    <form action="auth/login" method="post">
+    <form action="login" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
         <label for="password">Password:</label><br>
@@ -13,8 +17,8 @@
         <input type="submit" value="Login">
     </form>
 
+    <!-- Tampilkan pesan error jika login gagal -->
     <?php
-    // Tampilkan pesan error jika login gagal
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($error_message)) {
         echo '<p style="color: red;">' . $error_message . '</p>';
     }

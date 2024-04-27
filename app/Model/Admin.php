@@ -1,4 +1,5 @@
 <?php
+require_once('../../conn.php');
 
 class Admin {
     private $conn;
@@ -15,3 +16,5 @@ class Admin {
         return $result->fetch_assoc();
     }
 }
+?>
+
