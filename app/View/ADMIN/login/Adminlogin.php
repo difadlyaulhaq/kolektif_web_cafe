@@ -1,29 +1,44 @@
-<?php
-var_dump($_SESSION);
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="1.css"> <!-- Link to the external CSS file -->
 </head>
+
 <body>
-    <h2>Login</h2>
-    <form action="login" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Login">
-    </form>
 
-    <!-- Tampilkan pesan error jika login gagal -->
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($error_message)) {
-        echo '<p style="color: red;">' . $error_message . '</p>';
-    }
-    ?>
+  <div class="split left">
+    <!-- The left side with the building image -->
+  </div>
 
-    <p>Belum punya akun? <a href="register.php">Registrasi</a></p>
+  <div class="split right">
+    <div class="bgfont">
+      <img src="kolektif font white 1.png" id="font_kolektif" style="width: 90%; margin-bottom: 5px;">
+    </div>
+    <div class="container">
+      <div class="login-container">
+        <div class="login-title">
+          <h1>Welcome Back Teman Kolektif!</h1>
+          <p>“Fall seven times, get up eight”</p>
+        </div>
+        <form action="/submit_login" method="post">
+          <div>
+            <input type="text" placeholder="Username" name="username" required>
+          </div>
+          <div>
+            <input type="password" placeholder="Password" name="password" required>
+          </div>
+          <button type="submit" class="btn">LOG IN</button>
+        </form>
+        <a href="#" class="forgot">Forgot password?</a>
+      </div>
+    </div>
+
+  </div>
+
 </body>
+
 </html>
