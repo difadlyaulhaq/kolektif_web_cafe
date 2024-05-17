@@ -1,44 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="stylesheet" type="text/css" href="1.css"> <!-- Link to the external CSS file -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="h-screen flex relative">
+    <div class="absolute left-0 top-0 h-full w-1/2 bg-[url('1.jpg')] bg-cover bg-center"></div>
 
-<body>
+    <div class="relative w-1/2 ml-auto flex flex-col items-center justify-center bg-[#004d40] text-white -mt-16">
+        <img src="./KOLEKTIF.png" alt="Logo Baru" class="mb-4" style="width: 100px; height: auto;">
+        <img src="kolektif_font_white_1.png" alt="Kolektif" class=" mb-8" style = "width: 400px; height: auto;">
 
-  <div class="split left">
-    <!-- The left side with the building image -->
-  </div>
+        <div class="text-center p-8 bg-black bg-opacity-20 rounded-lg w-96">
+            <h1 class="text-2xl font-bold mb-2">Welcome Back <br>Teman Kolektif!</h1>
+            <p class="text-lg mb-4">“Fall seven times, get up eight”</p>
 
-  <div class="split right">
-    <div class="bgfont">
-      <img src="kolektif font white 1.png" id="font_kolektif" style="width: 90%; margin-bottom: 5px;">
-    </div>
-    <div class="container">
-      <div class="login-container">
-        <div class="login-title">
-          <h1>Welcome Back Teman Kolektif!</h1>
-          <p>“Fall seven times, get up eight”</p>
+            <form action="/submit_login" method="post" class="space-y-4">
+                <div>
+                    <input type="text" placeholder="Username" name="username" required class="w-full p-2 bg-transparent border-b border-white focus:outline-none placeholder-white">
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" name="password" required class="w-full p-2 bg-transparent border-b border-white focus:outline-none placeholder-white">
+                </div>
+                <button type="submit" class="w-full bg-white text-black font-bold py-2 px-4 rounded hover:bg-opacity-90">LOG IN</button>
+            </form>
+
+            <a href="#" class="text-gray-400 hover:underline mt-2">Forgot password?</a>
         </div>
-        <form action="/submit_login" method="post">
-          <div>
-            <input type="text" placeholder="Username" name="username" required>
-          </div>
-          <div>
-            <input type="password" placeholder="Password" name="password" required>
-          </div>
-          <button type="submit" class="btn">LOG IN</button>
-        </form>
-        <a href="#" class="forgot">Forgot password?</a>
-      </div>
     </div>
-
-  </div>
-
 </body>
-
 </html>

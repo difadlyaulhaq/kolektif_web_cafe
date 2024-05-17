@@ -3,114 +3,100 @@ body, html {
   margin: 0;
   font-family: JeJuGothic;
 }
+.container {
+    display: flex;
+}
+
 .split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
 }
+
 .left {
-  left: 0;
-  background-image: url('1.jpg'); /* Placeholder for the building image */
-  background-size: cover;
+    left: 0;
+    background-image: url('1.jpg');
+    background-size: cover;
+    background-position: center;
 }
+
 .right {
-  right: 0;
-  background-color: #004d40; /* Dark green background */
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    right: 0;
+    background-color: #004d40;
+    color: white;
+    display: grid;
+    place-items: center;
 }
+
 .login-container {
-  text-align: center;
-  position: relative;
-  left: 120px;
-  /* background: red; */
-  box-sizing: border-box;
-  width: 80%;
-
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
-.login-title{
-  position: relative;
-  top: -100px;
-  
-}
 .login-title h1 {
-  /* text-align: left; */
-  font-size: 50px !important;
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-weight: 100;
-  transform: translateX(-20%);
+    font-size: 2rem;
+    margin: 0 0 0.5rem;
+    color: white;
+    font-weight: bold;
 }
 
 .login-title p {
-  font-size: 20px;
-  color: white;
-  font-weight: 300;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 300;
+    line-height: 1.5;
 }
-.bgfont {
-  position: absolute;
-  width: 90%;
-  opacity: 50%;
-  top: 39%;
-  right: -10%;
-  z-index: 1;
-}
-
 
 input[type=text], input[type=password] {
-  width: 80%;
-  padding: 20px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: transparent;
-  border-bottom: 1px solid white;
-  color: white;
-  margin-right: 50px;
-  font-size: 20px;
+    width: calc(100% - 40px);
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    background: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 1rem;
 }
 
 input[type=text]::placeholder, input[type=password]::placeholder {
-  color: white; /* Change the placeholder text color to white */
-  opacity: 1; /* Firefox needs this to change the placeholder text color */
+    color: white;
+    opacity: 1;
 }
-
 
 input[type=text]:focus, input[type=password]:focus {
-  background-color: transparent;
-  color: white;
-  outline: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
 }
+
 .btn {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 25%;
-  opacity: 0.9;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Mengubah lebar tombol menjadi 100% */
+    opacity: 0.9;
 }
+
 .btn:hover {
-  opacity: 1;
+    opacity: 1;
 }
+
 .forgot {
-  color: grey;
-  text-decoration: none;
-  position: absolute;
-  right: 60px;
-  bottom: 60px;
+    color: grey;
+    text-decoration: none;
+    margin-top: 10px; /* Menambahkan margin atas */
 }
+
 .forgot:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
