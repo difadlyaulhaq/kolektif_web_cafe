@@ -15,15 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
                             <td>${index + 1}</td>
-                            <td>${order.customer_name}</td>
-                            <td>${order.total}</td>
+                            <td>${order.no_pesanan}</td>
+                            <td>${order.menu_name}</td>
+                            <td>${order.qty}</td>
+                            <td>${order.harga * order.qty}</td>
                             <td>${order.status}</td>
                         `;
                         orderTable.appendChild(row);
 
                         const buttonRow = document.createElement('tr');
                         buttonRow.innerHTML = `
-                            <td><button class="view-details" data-id="${order.id}">View Details</button></td>
+                            <td><button class="view-details" data-id="${order.id_pesanan}">View Details</button></td>
                         `;
                         buttonTable.appendChild(buttonRow);
                     });
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         });
                     });
                 } else {
-                    orderTable.innerHTML = `<tr><td colspan="4">${data}</td></tr>`;
+                    orderTable.innerHTML = `<tr><td colspan="6">${data}</td></tr>`;
                 }
             })
             .catch(error => console.error('Error fetching recent orders:', error));
@@ -46,37 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 const orderDetailsDiv = document.getElementById('order-details');
-                orderDetailsDiv.innerHTML = `
-                    <p>Order ID: ${data.id}</p>
-                    <p>Customer Name: ${data.customer_name}</p>
-                    <p>Total: ${data.total}</p>
-                    <p>Status: ${data.status}</p>
-                    <p>Items:</p>
-                    <ul>
-                        ${data.items.map(item => `<li>${item.name} - ${item.quantity}</li>`).join('')}
-                    </ul>
-                    <button id="update-status" data-id="${data.id}">Update Status</button>
-                `;
-
-                document.getElementById('update-status').addEventListener('click', () => {
-                    updateOrderStatus(data.id);
-                });
+                if (typeof data === 'string') {
+                    orderDetailsDiv.innerHTML = `<p>${data}</p>`;
+                } else {
+                    orderDetailsDiv.innerHTML = `
+                        <p>Order ID: ${data.id_pesanan}</p>
+                        <p>Customer Name: ${data.customer_name}</p>
+                        <p>Total: ${data.harga * data.qty}</p>
+                        <p>Status: ${data.status}</p>
+                    `;
+                }
             })
             .catch(error => console.error('Error fetching order details:', error));
-    }
-
-    function updateOrderStatus(orderId) {
-        fetch('update_order_status.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `id=${orderId}`,
-        })
-            .then(response => response.text())
-            .then(result => {
-                alert(result);
-            })
-            .catch(error => console.error('Error updating order status:', error));
     }
 });

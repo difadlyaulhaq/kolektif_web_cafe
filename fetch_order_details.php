@@ -1,25 +1,28 @@
 <?php
 include("config.php");
 
-$order_id = intval($_GET['id']);
-$query = "SELECT * FROM orders WHERE id = $order_id";
-$result = $conn->query($query);
+$db = $conn;
+$order_id = $_GET['id'];
 
-$order = [];
+$query = "
+    SELECT p.id_pesanan, p.no_pesanan, p.qty, p.note, p.status, m.nama AS menu_name, m.harga 
+    FROM pesanan p 
+    JOIN menu m ON p.id_menu = m.id_menu 
+    WHERE p.id_pesanan = ?
+";
+
+$stmt = $db->prepare($query);
+$stmt->bind_param("i", $order_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$order_details = [];
+
 if ($result->num_rows > 0) {
-    $order = $result->fetch_assoc();
-
-    // Fetch order items
-    $query_items = "SELECT * FROM order_items WHERE order_id = $order_id";
-    $result_items = $conn->query($query_items);
-
-    $order['items'] = [];
-    if ($result_items->num_rows > 0) {
-        while ($row = $result_items->fetch_assoc()) {
-            $order['items'][] = $row;
-        }
-    }
+    $order_details = $result->fetch_assoc();
+} else {
+    $order_details = "Order details not found";
 }
 
-echo json_encode($order);
+echo json_encode($order_details);
 ?>
