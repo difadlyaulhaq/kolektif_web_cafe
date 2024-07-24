@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'config.php';
 
 $sql = "SELECT * FROM reservations ORDER BY date DESC";
 $result = $conn->query($sql);

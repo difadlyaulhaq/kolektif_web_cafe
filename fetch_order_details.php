@@ -1,17 +1,25 @@
 <?php
-include 'config.php';
+include("config.php");
 
-$order_no = $_GET['order_no'];
+$order_id = intval($_GET['id']);
+$query = "SELECT * FROM orders WHERE id = $order_id";
+$result = $conn->query($query);
 
-$sql = "SELECT * FROM pesanan WHERE no_pesanan = '$order_no'";
-$result = $conn->query($sql);
+$order = [];
+if ($result->num_rows > 0) {
+    $order = $result->fetch_assoc();
 
-$order_details = array();
-while($row = $result->fetch_assoc()) {
-    $order_details[] = $row;
+    // Fetch order items
+    $query_items = "SELECT * FROM order_items WHERE order_id = $order_id";
+    $result_items = $conn->query($query_items);
+
+    $order['items'] = [];
+    if ($result_items->num_rows > 0) {
+        while ($row = $result_items->fetch_assoc()) {
+            $order['items'][] = $row;
+        }
+    }
 }
 
-echo json_encode($order_details);
-
-$conn->close();
+echo json_encode($order);
 ?>

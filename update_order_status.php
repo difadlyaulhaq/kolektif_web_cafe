@@ -1,15 +1,12 @@
 <?php
-include 'config.php';
+include("config.php");
 
-$order_no = $_POST['order_no'];
-$status = $_POST['status'];
+$order_id = intval($_POST['id']);
+$query = "UPDATE orders SET status = 'Completed' WHERE id = $order_id";
 
-$sql = "UPDATE pesanan SET status = '$status' WHERE no_pesanan = '$order_no'";
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+if ($conn->query($query) === TRUE) {
+    echo "Order status updated successfully.";
 } else {
-    echo "Error updating record: " . $conn->error;
+    echo "Error updating order status: " . $conn->error;
 }
-
-$conn->close();
 ?>

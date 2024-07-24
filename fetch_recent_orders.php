@@ -1,21 +1,33 @@
 <?php
-include 'config.php';
+include("config.php");
 
-$sql = "SELECT p.no_pesanan, c.name as cust_name, op.name as cashier, p.type, p.status
-        FROM pesanan p
-        JOIN customers c ON p.cust_id = c.id
-        JOIN operators op ON p.op_id = op.id
-        ORDER BY p.id_pesanan DESC
-        LIMIT 5";
+$tableName = "orders";
+$columns = ['id', 'customer_name', 'total', 'created_at', 'status'];
+$fetchData = fetch_data($conn, $tableName, $columns);
 
-$result = $conn->query($sql);
+function fetch_data($db, $tableName, $columns) {
+    if (empty($db)) {
+        return "Database connection error";
+    } elseif (empty($columns) || !is_array($columns)) {
+        return "Columns name must be defined in an indexed array";
+    } elseif (empty($tableName)) {
+        return "Table name is empty";
+    } else {
+        $columnName = implode(", ", $columns);
+        $query = "SELECT " . $columnName . " FROM $tableName ORDER BY id DESC";
+        $result = $db->query($query);
 
-$orders = array();
-while($row = $result->fetch_assoc()) {
-    $orders[] = $row;
+        if ($result == true) {
+            if ($result->num_rows > 0) {
+                return mysqli_fetch_all($result, MYSQLI_ASSOC);
+            } else {
+                return "No Data Found";
+            }
+        } else {
+            return mysqli_error($db);
+        }
+    }
 }
 
-echo json_encode($orders);
-
-$conn->close();
+echo json_encode($fetchData);
 ?>

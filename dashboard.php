@@ -1,9 +1,5 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +11,6 @@ session_start();
         }
     </style>
 </head>
-
 <body class="m-0 bg-[#F5F5F5]">
     <section class="on-page flex">
         <div class="sidebar fixed top-0 left-0 h-full w-64 bg-gray-100 py-5 overflow-y-auto">
@@ -30,7 +25,6 @@ session_start();
                 <li><a href="#" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Account</a></li>
             </ul>
         </div>
-
         <section class="main-content flex absolute left-[20%] m-0">
             <header class="h-[13.6%] w-[80%] bg-[#F5F5F5] fixed top-0 z-10">
                 <div class="container max-w-[1170px] w-full px-[15px] mx-auto">
@@ -40,7 +34,8 @@ session_start();
                     </div>
                     <span class="fa fa-bars akun-icon ml-0.378"></span>
                     <div class="header-right float-right mt-[15px] mr-[60px] flex items-center">
-                        <img class="photo-profile rounded-full h-[45px]" src="asset\74f4f548392fbdafbe8a5d9764c83eaf.jpg">
+                        <img class="photo-profile rounded-full h-[45px]"
+                            src="asset\74f4f548392fbdafbe8a5d9764c83eaf.jpg">
                         <div class="header-akun ml-[10px]">
                             <h3 class="name-pp mb-[-5px]">Nada Satya M</h3>
                             <p class="header-acc-position text-[#B9B9B9]">Manager</p>
@@ -48,57 +43,35 @@ session_start();
                     </div>
                 </div>
             </header>
-
-            <div class="information flex ml-[20px] w-[80%] bg-[#F5F5F5] fixed top-[13.6%]">
-                <div class="selling mr-[20px] mt-[20px] h-[15%] w-[22%] bg-[#FFFFFF] shadow-[3px_3px_2px_rgba(185_185_185_1)] p-[20px_0_10px_10px] rounded-[5px]">
-                    <h2 class="text-[24px]">43</h2>
-                    <h3 class="text-[#9F8151]">selling</h3>
+            <section class="content mt-[16%] ml-[-40px]">
+                <div class="button-container flex justify-end mr-[30px]">
+                    <button id="fetch-recent-orders" class="btn bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Fetch Recent Orders</button>
                 </div>
-                <div class="reservation mr-[20px] mt-[20px] h-[15%] w-[22%] bg-[#FFFFFF] p-[20px_0_10px_10px] rounded-[5px]">
-                    <h2 class="text-[24px]">5</h2>
-                    <h3 class="text-[#9F8151]">Reservation</h3>
-                </div>
-                <div class="orders mr-[20px] mt-[20px] h-[15%] w-[22%] bg-[#FFFFFF] p-[20px_0_10px_10px] rounded-[5px]">
-                    <h2 class="text-[24px]">29/34</h2>
-                    <h3 class="text-[#9F8151]">Orders</h3>
-                </div>
-                <div class="income mt-[20px] h-[15%] w-[22%] bg-[#0A4833] text-white p-[20px_0_10px_10px] rounded-[5px]">
-                    <h2 class="text-[24px]">Rp 1.020K</h2>
-                    <h3>Income</h3>
-                </div>
-            </div>
-
-            <div class="orderan flex mt-[15px] ml-[20px] w-[80%] bg-[#F5F5F5] fixed top-[30%]">
-                <div class="recentorder flex flex-col w-[60%]">
-                    <div class="ro bg-white rounded-[10px] w-[100%]">
-                        <div class="ro-head h-[50px] flex justify-between items-center rounded-[10px_10px_0_0] shadow-lg">
-                            <h2 class="ml-[20px] text-[20px]">Recent Orders</h2>
-                            <button id="fetch-recent-orders" class="ml-[20px] bg-blue-500 text-white py-1 px-4 rounded">Fetch Recent Orders</button>
-                        </div>
-                        <div class="tabel-ro flex">
-                            <table class="order-table w-[80%] mt-[15px] ml-[20px] mb-[20px] rounded-md border-[2px] border-collapse justify-between p-[10px]">
-                                <!-- Table rows will be populated by JavaScript -->
-                            </table>
-                            <table class="button-table w-[100px] mt-[50px] ml-[20px] mb-[20px] border-collapse">
-                                <!-- Button rows will be populated by JavaScript -->
-                            </table>
-                        </div>
+                <div class="recent-orders mx-[30px] mt-[30px] bg-white p-[20px] shadow-md rounded-lg">
+                    <h2 class="text-[24px] mb-[20px]">Recent Orders</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer Name</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="order-table">
+                            <!-- Orders will be populated here -->
+                        </tbody>
+                        <tbody class="button-table">
+                            <!-- View details buttons will be populated here -->
+                        </tbody>
+                    </table>
+                    <div id="order-details" class="order-details mt-[20px]">
+                        <!-- Order details will be displayed here -->
                     </div>
                 </div>
-            </div>
-
-            <div class="detail-orders ml-[20px] bg-white rounded-[10px] w-[35%]">
-                <div class="do-head h-[50px] flex justify-between items-center rounded-[10px_10px_0_0] shadow-lg">
-                    <h2 class="ml-[20px] text-[20px]">Details Order</h2>
-                </div>
-                <div class="notabon p-[10px_20px]" id="order-details">
-                    <button>Detail In Here</button>
-                </div>
-            </div>
+            </section>
         </section>
     </section>
-
     <script src="recentorder.js"></script>
 </body>
-
 </html>
