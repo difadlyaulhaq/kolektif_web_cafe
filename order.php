@@ -47,23 +47,18 @@ if (isset($_POST["done"])) {
 </head>
 
 <body class="font-sans">
-  <div class="sidebar h-full w-64 fixed top-0 left-0 bg-gray-100 pt-5 overflow-y-auto text-gray-800">
-    <div class="sidebar-header text-center mb-5">
-      <img src="/BE/assets/nav-left.png" alt="Sidebar Image" class="w-56 mx-auto">
-    </div>
-    <ul class="list-none p-0">
-      <li><a href="dashboard.php" class="block px-6 py-5 text-lg text-gray-600 hover:bg-green-800 hover:text-white">Dashboard</a>
-      </li>
-      <li><a href="reservasi.html"
-          class="block px-6 py-5 text-lg text-gray-600 hover:bg-green-800 hover:text-white">Reservation</a></li>
-      <li><a href="menu.php" class="block px-6 py-5 text-lg text-gray-600 hover:bg-green-800 hover:text-white">add
-          Menu</a></li>
-      <li><a href="order.php"
-          class="block px-6 py-5 text-lg text-gray-600 hover:bg-green-800 hover:text-white">Orders</a></li>
-      <li><a href="#" class="block px-6 py-5 text-lg text-gray-600 hover:bg-green-800 hover:text-white">Account</a></li>
-    </ul>
-  </div>
-
+<div class="sidebar fixed top-0 left-0 h-full w-64 bg-gray-100 py-5 overflow-y-auto">
+            <div class="sidebar-header text-center mb-5">
+                <img src="nav-left.png" alt="Sidebar Image" class="sidebar-image w-56 mx-auto">
+            </div>
+            <ul class="list-none p-0">
+                <li><a href="dashboard.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Dashboard</a></li>
+                <li><a href="reservation.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Reservation</a></li>
+                <li><a href="menu.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Add Menu</a></li>
+                <li><a href="order.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Orders</a></li>
+                <li><a href="#" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Account</a></li>
+            </ul>
+        </div>
   <div class="ml-64 p-5">
     <!-- search bar -->
     <div class="search-container text-center mb-10">

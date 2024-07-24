@@ -21,7 +21,7 @@
             </div>
             <ul class="list-none p-0">
                 <li><a href="dashboard.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Dashboard</a></li>
-                <li><a href="reservasi.html" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Reservation</a></li>
+                <li><a href="reservation.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Reservation</a></li>
                 <li><a href="menu.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Add Menu</a></li>
                 <li><a href="order.php" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Orders</a></li>
                 <li><a href="#" class="block py-5 px-6 text-lg text-gray-600 hover:text-white hover:bg-green-800">Account</a></li>
@@ -131,7 +131,7 @@
                                     <td class="py-2 px-4 border-b">${order.harga * order.qty}</td>
                                     <td class="py-2 px-4 border-b">${order.status}</td>
                                     <td class="py-2 px-4 border-b">
-                                        <button class="bg-blue-800 text-white py-1 px-2 rounded view-details" data-id="${order.no_pesanan}">View Details</button>
+                                        <button class="bg-green-800 text-white py-1 px-2 rounded view-details" data-id="${order.no_pesanan}">View Details</button>
                                     </td>
                                 `;
                                 orderTable.appendChild(row);

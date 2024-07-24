@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 
-$sql = "SELECT * FROM reservations ORDER BY date DESC";
+$sql = "SELECT * FROM reservation";
 $result = $conn->query($sql);
 
 $reservations = array();
@@ -10,4 +10,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 echo json_encode($reservations);
+
+$result->close();
+$conn->close();
 ?>
