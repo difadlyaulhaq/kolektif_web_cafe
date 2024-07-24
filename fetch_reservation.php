@@ -1,16 +1,17 @@
 <?php
-include 'config.php';
+include 'config.php'; // Include your database connection
 
-$sql = "SELECT * FROM reservation";
-$result = $conn->query($sql);
+function fetchReservations() {
+    global $conn;
+    $sql = "SELECT room_id, reserver, no_telp, durasi, harga, status FROM reservation";
+    $result = $conn->query($sql);
 
-$reservations = array();
-while ($row = $result->fetch_assoc()) {
-    $reservations[] = $row;
+    $reservations = [];
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $reservations[] = $row;
+        }
+    }
+    return $reservations;
 }
-
-echo json_encode($reservations);
-
-$result->close();
-$conn->close();
 ?>
