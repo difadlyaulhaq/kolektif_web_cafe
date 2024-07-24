@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("isssis", $room_id, $reserver, $no_telp, $durasi, $harga, $status);
 
     if ($stmt->execute()) {
-        echo "Reservation created successfully";
+        echo "<p class='text-green-600'>Reservation created successfully</p>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "<p class='text-red-600'>Error: " . $stmt->error . "</p>";
     }
 
     $stmt->close();

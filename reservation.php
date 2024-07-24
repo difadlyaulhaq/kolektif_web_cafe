@@ -65,8 +65,8 @@
         <!-- Sidebar -->
         <div class="sidebar w-1/5 bg-gray-100 fixed top-0 h-full">
             <div class="kolektif-name flex mt-8 ml-8">
-                <img class="logo h-6" src="nav-left.png">
-                <img class="logo-name h-6 ml-2.5" src="kolektif green.png">
+                <!-- <img class="logo h-6" src="kolektif logo grey green.png"> -->
+                <img class="logo-name h-6 ml-2.5" src="nav-left.png">
             </div>
             <ul class="list-none p-0 mt-12">
                 <li><a href="dashboard.php" class="block py-5 px-6 text-lg">Dashboard</a></li>
@@ -79,61 +79,9 @@
 
         <!-- Main Content -->
         <div class="main-content flex-grow p-6">
-            <!-- Header -->
-            <header class="bg-[#F5F5F5] shadow-lg">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="greeting text-[#B9B9B9] text-lg">Hello Nada!</h3>
-                        <h2 class="quote text-[#0A4833] text-xl">One's act, one's profit</h2>
-                    </div>
-                    <div class="flex items-center">
-                        <img class="photo-profile" src="kucing gemoy.jpg" alt="Profile Picture">
-                        <div class="ml-4">
-                            <h3 class="name-pp mb-[-5px]">Nada Satya M</h3>
-                            <p class="header-acc-position text-[#B9B9B9]">Manager</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <div class="container mx-auto mt-20">
-                <!-- Create Reservation Form -->
-                <div class="card">
-                    <h2 class="text-2xl font-bold mb-4">Create Reservation</h2>
-                    <form id="createReservationForm" class="space-y-4" method="POST" action="create_reservation.php">
-                        <div>
-                            <label for="room_id" class="block text-gray-700">Room ID:</label>
-                            <input type="number" id="room_id" name="room_id" class="w-full border border-gray-300 p-2 rounded" required>
-                        </div>
-                        <div>
-                            <label for="reserver" class="block text-gray-700">Reserver:</label>
-                            <input type="text" id="reserver" name="reserver" class="w-full border border-gray-300 p-2 rounded" required>
-                        </div>
-                        <div>
-                            <label for="no_telp" class="block text-gray-700">Phone Number:</label>
-                            <input type="text" id="no_telp" name="no_telp" class="w-full border border-gray-300 p-2 rounded" required>
-                        </div>
-                        <div>
-                            <label for="durasi" class="block text-gray-700">Duration:</label>
-                            <input type="text" id="durasi" name="durasi" class="w-full border border-gray-300 p-2 rounded" required>
-                        </div>
-                        <div>
-                            <label for="harga" class="block text-gray-700">Price:</label>
-                            <input type="number" id="harga" name="harga" class="w-full border border-gray-300 p-2 rounded" required>
-                        </div>
-                        <div>
-                            <label for="status" class="block text-gray-700">Status:</label>
-                            <select id="status" name="status" class="w-full border border-gray-300 p-2 rounded" required>
-                                <option value="Unpaid">Unpaid</option>
-                                <option value="Paid">Paid</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Create Reservation</button>
-                    </form>
-                </div>
-
+            <div class="container mx-auto mt-20 flex">
                 <!-- Reservation List -->
-                <div class="card">
+                <div class="card w-3/4">
                     <h2 class="text-2xl font-bold mb-4">Reservation List</h2>
                     <table class="reservation-table w-full">
                         <thead>
@@ -164,20 +112,80 @@
                             ?>
                         </tbody>
                     </table>
+                    <div id="order-details" class="mt-6"></div>
                 </div>
 
-                <!-- Reservation Details -->
-                <div class="card" id="reservation-details">
-                    <h2 class="text-2xl font-bold mb-4">Reservation Details</h2>
-                    <div id="order-details" class="space-y-2"></div>
+                <!-- Create Reservation Form -->
+                <div class="card w-1/4 ml-6">
+                    <h2 class="text-2xl font-bold mb-4">Create Reservation</h2>
+                    <form id="createReservationForm" class="space-y-4" method="POST">
+                        <div>
+                            <label for="room_id" class="block text-gray-700">Room ID:</label>
+                            <input type="number" id="room_id" name="room_id" class="w-full border border-gray-300 p-2 rounded" required>
+                        </div>
+                        <div>
+                            <label for="reserver" class="block text-gray-700">Reserver:</label>
+                            <input type="text" id="reserver" name="reserver" class="w-full border border-gray-300 p-2 rounded" required>
+                        </div>
+                        <div>
+                            <label for="no_telp" class="block text-gray-700">Phone Number:</label>
+                            <input type="text" id="no_telp" name="no_telp" class="w-full border border-gray-300 p-2 rounded" required>
+                        </div>
+                        <div>
+                            <label for="durasi" class="block text-gray-700">Duration:</label>
+                            <input type="text" id="durasi" name="durasi" class="w-full border border-gray-300 p-2 rounded" required>
+                        </div>
+                        <div>
+                            <label for="harga" class="block text-gray-700">Price:</label>
+                            <input type="number" id="harga" name="harga" class="w-full border border-gray-300 p-2 rounded" required>
+                        </div>
+                        <div>
+                            <label for="status" class="block text-gray-700">Status:</label>
+                            <select id="status" name="status" class="w-full border border-gray-300 p-2 rounded" required>
+                                <option value="Unpaid">Unpaid</option>
+                                <option value="Paid">Paid</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Create Reservation</button>
+                        <div id="notification" class="mt-4 text-center"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
+    document.getElementById('createReservationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        fetch('create_reservation.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            const notification = document.getElementById('notification');
+            notification.innerHTML = data;
+            if (data.includes('success')) {
+                notification.classList.remove('text-red-600');
+                notification.classList.add('text-green-600');
+                form.reset();
+            } else {
+                notification.classList.remove('text-green-600');
+                notification.classList.add('text-red-600');
+            }
+        })
+        .catch(error => {
+            const notification = document.getElementById('notification');
+            notification.innerHTML = 'Error: ' + error;
+            notification.classList.remove('text-green-600');
+            notification.classList.add('text-red-600');
+        });
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
-        // Fetch reservation details
         window.fetchReservationDetails = function(roomId) {
             fetch(`fetch_reservation_details.php?room_id=${roomId}`)
                 .then(response => response.json())
