@@ -9,7 +9,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id = $_GET['id'];
 
-if (isset($_POST["go"])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = $_POST['nama'];
     $deskripsi = $_POST['deskripsi'];
     $harga = $_POST['harga'];
@@ -110,8 +110,6 @@ if (isset($_POST["go"])) {
                     <input type="file" id="menu_image" name="menu_image"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
-                
-                <input type="hidden" name="go">
                 
                 <div class="text-center">
                     <button type="submit"

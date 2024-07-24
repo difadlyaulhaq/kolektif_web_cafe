@@ -5,19 +5,26 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = $_GET['id'];
 
     // Hapus gambar dari server
-    $result = $conn->query("SELECT path_gambar FROM menu WHERE id_menu=$id");
-    $menu = $result->fetch_assoc();
-    if ($menu && file_exists($menu['path_gambar'])) {
-        unlink($menu['path_gambar']);
+    $result = $conn->query("SELECT path_gambar FROM menu WHERE id_menu = $id");
+    $row = $result->fetch_assoc();
+    $imagePath = $row['path_gambar'];
+
+    if (file_exists($imagePath)) {
+        unlink($imagePath);
     }
 
-    // Hapus data dari database
-    $sql = "DELETE FROM menu WHERE id_menu=$id";
+    // Hapus entri terkait di tabel pesanan dan billing
+    $conn->query("DELETE FROM billing WHERE id_menu = $id");
+    $conn->query("DELETE FROM pesanan WHERE id_menu = $id");
+
+    // Hapus menu dari tabel menu
+    $sql = "DELETE FROM menu WHERE id_menu = $id";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<script>window.location.href='menu.php?status=success'</script>";
+        header("Location: menu.php");
+        exit();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error deleting record: " . $conn->error;
     }
 } else {
     echo "Invalid ID";

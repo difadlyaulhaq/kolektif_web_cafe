@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- <link rel="stylesheet" href="account.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Bahnschrift';
+        }
+    </style>
+</head>
+<body class="m-0 bg-[#F5F5F5]">
+    <section class="on-page flex">
+        <section class="side-bar w-1/5 bg-gray-100 fixed top-0 h-full">
+            <div class="kolektif-name flex">
+                <img class="logo h-6 mt-8 ml-8" src="kolektif logo grey green.png">
+                <img class="logo-name h-6 mt-8 ml-2.5" src="kolektif green.png">
+            </div>
+            <span class="fa fa-bars fitur-icon ml-0.375"></span>
+            <div class="fitur-names flex flex-col mt-[50px]">
+                <a class="click-off leading-[65px] pl-[60px] block float-left transition-all duration-500 mt-[20px] text-black text-[18px] hover:text-[#9F8151]" href="dashboard.html">Dashboard</a>
+                <a class="click-on leading-[65px] pl-[60px] float-left transition-all duration-500 mt-[20px] flex items-center bg-[#0A4833] h-[50px] text-white rounded-r-[10px] text-[20px]" href="#"">Reservation</a>
+                <a class="click-off leading-[65px] pl-[60px] block float-left transition-all duration-500 mt-[20px] text-black text-[18px] hover:text-[#9F8151]" href="#">Orders</a>
+                <a class="click-off leading-[65px] pl-[60px] block float-left transition-all duration-500 mt-[20px] text-black text-[18px] hover:text-[#9F8151]" href="#">Menu</a>
+                <a class="click-off leading-[65px] pl-[60px] block float-left transition-all duration-500 mt-[20px] text-black text-[18px] hover:text-[#9F8151]" href="account.html"">Accounts</a>
+            </div>
+        </section>
+        <section class="main-content flex absolute left-[20%] m-0">
+            <header class="h-[13.6%] w-[80%] bg-[#F5F5F5] fixed top-0 z-10">
+                <div class="container max-w-[1170px] w-full px-[15px] mx-auto">
+                    <div class="header-left float-left ml-[20px]">
+                        <h3 class="greeting text-[#B9B9B9] text-[18px] my-[30px] mb-[-10px]">Hello Nada!</h3>
+                        <h2 class="quote text-[#0A4833] text-[24px]">One's act, one's profit</h2>
+                    </div>
+                    <span class="fa fa-bars akun-icon ml-0.378"></span>
+                    <div class="header-right float-right mt-[15px] mr-[60px] flex items-center">
+                        <img class="photo-profile rounded-full h-[45px]" src="kucing gemoy.jpg">
+                        <div class="header-akun ml-[10px]">
+                            <h3 class="name-pp mb-[-5px]">Nada Satya M</h3>
+                            <p class="header-acc-position text-[#B9B9B9]">Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="reservation flex mt-[15px] ml-[20px] w-[80%] bg-[#F5F5F5] fixed top-[13.6%]">
+                <div class="roomandreservation flex flex-col w-[60%]">
+                    <div class="rooms bg-white rounded-[10px]">
+                        <div class="rooms-head h-[50px] flex justify-between items-center rounded-[10px_10px_0_0] shadow-lg">
+                            <h2 class="ml-[20px] text-[20px]">Rooms</h2>
+                        </div>
+                        <div class="tabel-room flex justify-start">
+                            <table class="flex w-[100%] mt-[15px] ml-[20px] mr-[20px] mb-[20px] rounded-md border-[2px] border-collapse justify-start">
+                                <tr>
+                                    <th class="p-[5px] w-[15%] text-[14px]">Room Type</th>
+                                    <th class="p-[5px] w-[10%] text-[14px]">Rooms</th>
+                                    <th class="p-[5px] w-[10%] text-[14px]">Capacity</th>
+                                    <th class="p-[5px] w-[45%] text-[14px]">Facilities</th>
+                                    <th class="p-[5px] w-[20%] text-[14px]">Prices</th>
+                                </tr>
+                                <tr>
+                                    <td class="p-[5px] text-[14px]">Small</td>
+                                    <td class="p-[5px] text-[14px]">2</td>
+                                    <td class="p-[5px] text-[14px]">max 10</td>
+                                    <td class="p-[5px] text-[14px]">Free WiFi, Smart TV, AC, Table & Chair</td>
+                                    <td class="p-[5px] text-[14px]">
+                                        <ul class="list-none">
+                                            <li>100k / 3h</li>
+                                            <li>180k / 8h</li>
+                                            <li>350k / allday</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-[5px] text-[14px]">Medium</td>
+                                    <td class="p-[5px] text-[14px]">1</td>
+                                    <td class="p-[5px] text-[14px]">max 20</td>
+                                    <td class="p-[5px] text-[14px]">Free WiFi, AC, Table & chairs, Screen Projector, Sound System [request]</td>
+                                    <td class="p-[5px] text-[14px]">
+                                        <ul class="list-none">
+                                            <li>200k / 3h</li>
+                                            <li>380k / 8h</li>
+                                            <li>600k / allday</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-[5px] text-[14px]">Large</td>
+                                    <td class="p-[5px] text-[14px]">2</td>
+                                    <td class="p-[5px] text-[14px]">max 100</td>
+                                    <td class="p-[5px] text-[14px]">Free WiFi, AC, Table & chairs, Screen Projector, Sound System [request]</td>
+                                    <td class="p-[5px] text-[14px]">
+                                        <ul>
+                                            <li>300k / 3h</li>
+                                            <li>580k / 8h</li>
+                                            <li>900k / allday</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- <div class="orderan1">
+                                <p>S/010424/3/9</p>
+                                <button class="detail-btn bg-[#D9D9D9]" data-order="S/010424/3/9">DETAIL</button>
+                            </div>
+                            <div class="orderan2">
+                                <p>S/010424/2/9</p>
+                                <button class="detail-btn bg-[#D9D9D9]" data-order="S/010424/2/9">DETAIL</button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="recent-reservation bg-white rounded-[10px] mt-[20px]">
+                        <div class="rr h-[50px] flex justify-between items-center rounded-[10px_10px_0_0] shadow-lg">
+                            <h2 class="ml-[20px] text-[20px]">Recent Reservation</h2>
+                        </div>
+                        <div class="tabel-rr flex justify-start">
+                            <table class="flex w-[100%] mt-[15px] ml-[20px] mr-[20px] mb-[20px] rounded-md border-[2px] border-collapse">
+                                <!-- <tr>
+                                    <th class="p-[5px] w-[20%] text-[14px]">Nota Num.</th>
+                                    <th class="p-[5px] w-[25%] text-[14px]">Cust. Name</th>
+                                    <th class="p-[5px] w-[15%] text-[14px]">Admin</th>
+                                    <th class="p-[5px] w-[25%] text-[14px]">Room Type</th>
+                                    <th class="p-[5px] w-[45%] text-[14px]">Time</th>
+                                    <th class="p-[5px] w-[10%] text-[14px]">Status</th>
+                                </tr>
+                                <tr>
+                                    <td class="p-[5px] text-[14px]">16/05/2024</td>
+                                    <td class="p-[5px] text-[14px]">Difa</td>
+                                    <td class="p-[5px] text-[14px]">Dawam</td>
+                                    <td class="p-[5px] text-[14px]">Small</td>
+                                    <td class="p-[5px] text-[14px]">17/05/2024 12:45</td>
+                                    <td class="p-[5px] text-[14px]">Booked</td>
+                                </tr> -->
+
+                                <tr>
+                                    <th class="px-7 py-1 w-1/5 text-sm">Nota Num.</th>
+                                    <th class="px-7 py-1 w-1/4 text-sm">Cust. Name</th>
+                                    <th class="px-7 py-1 w-1/6 text-sm">Admin</th>
+                                    <th class="px-6 py-1 w-1/4 text-sm">Room Type</th>
+                                    <th class="px-7 py-1 w-1/4 text-sm">Time</th>
+                                    <th class="px-7 py-1 w-1/10 text-sm">Status</th>
+                                </tr>
+                                <tr>
+                                    <td class="px-7 py-1 text-sm">16/05/2024</td>
+                                    <td class="px-7 py-1 text-sm">Difa</td>
+                                    <td class="px-7 py-1 text-sm">Dawam</td>
+                                    <td class="px-6 py-1 text-sm">Small</td>
+                                    <td class="px-6 py-1 text-sm">17/05/2024 12:45</td>
+                                    <td class="px-7 py-1 text-sm">Booked</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-orders  ml-[20px] bg-white rounded-[10px] w-[35%]">
+                    <div class="do-head h-[50px] flex justify-between items-center rounded-[10px_10px_0_0] shadow-lg">
+                        <h2 class="ml-[20px] text-[20px]">Details Reservation</h2>
+                    </div>
+                    <div class="notabon p-[10px_20px]" id="order-details">
+                        <!-- <h3>S/010424/3/9</h3>
+                        <h3>Difa</h3>
+                        <div class="menus">
+                            <div class="menu-1">
+                                <div class="menu-dtl">
+                                    <h4>Ice Coffee Sousally</h4>
+                                    <h4>L / N / LS</h4>
+                                </div>
+                                <div class="menu-price">
+                                    <h4>1 x 25.000</h4>
+                                    <h4>25.000</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment">
+                            <div class="total">
+                                <h4>Total :</h4>
+                                <h4>52.000</h4>
+                            </div>
+                        </div> -->
+
+                        <div class="container mx-auto max-w-2xl p-4">
+                            <div class="flex justify-between items-center">
+                              <!-- <h1 class="text-3xl font-bold">Details Reservation</h1> -->
+                              <div class="flex items-center">
+                                <span class="text-sm font-medium">No. Resi:</span>
+                                <span class="ml-2 text-sm font-bold">010424/5/070424</span> 
+                              </div>
+                            </div>
+                        
+                            <div class="mt-4">
+                              <h2 class="reeting text-[#B9B9B9] text-xl font-medium">Difa</h2>
+                              <table class="w-full mt-2">
+                                <thead>
+                                  <tr>
+                                    <th class="text-left p-2">Nama Menu</th>
+                                    <th class="text-right p-2">Qty</th>
+                                    <th class="text-right p-2">Harga</th>
+                                    <th class="text-right p-2">Total</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td class="text-left p-2">Ice Coffee Soursally L/N/LS</td>
+                                    <td class="text-right p-2">1</td>
+                                    <td class="text-right p-2">Rp25.000</td>
+                                    <td class="text-right p-2">Rp25.000</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="text-left p-2">Shrimp Dynamite Mayo</td>
+                                    <td class="text-right p-2">1</td>
+                                    <td class="text-right p-2">Rp27.000</td>
+                                    <td class="text-right p-2">Rp27.000</td>
+                                  </tr>
+                                </tbody>
+                                <tfoot>
+                                  <tr>
+                                    <td colspan="3" class="text-right p-2">Total:</td>
+                                    <td class="text-right p-2 font-bold">Rp52.000</td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+                            </div>
+                        
+                            <div class="mt-4">
+                              <h2 class="text-xl font-medium">Pembayaran</h2>
+                              <div class="flex justify-between items-center mt-2">
+                                <span class="text-sm font-medium">Metode Pembayaran:</span>
+                                <span class="ml-2 text-sm font-bold">Cash/Card/QRIS</span>
+                              </div>
+                              <div class="flex justify-between items-center mt-2">
+                                <span class="text-sm font-medium">Jumlah Bayar:</span>
+                                <span class="ml-2 text-sm font-bold">Rp60.000</span>
+                              </div>
+                              <div class="flex justify-between items-center mt-2">
+                                <span class="text-sm font-medium">Kembalian:</span>
+                                <span class="ml-2 text-sm font-bold">Rp4.000</span>
+                              </div>
+                            </div>
+                        
+                            <br>
+                            <div id="doneButton" class="mt-4 text-center bg-[#9F8151]">
+                              <span class="text-sm font-bold transition-all duration-500 hover:text-white">DONE</span>
+                            </div>
+
+                        <!-- <script src="recentorder.js"></script>
+                        <button>DONE</button> -->
+                        <script>
+                            document.getElementById('doneButton').addEventListener('click', function() {
+                                alert('Reservation completed! Here are the details:\n' +
+                                    'Customer: Difa\n' +
+                                    'Ice Coffee Soursally: 1 x 25.000\n' +
+                                    'Shrimpy Dynamite Mayo: 1 x 27.000\n' +
+                                    'Total: 52.000\n' +
+                                    'Payment: 60.000\n' +
+                                    'Change: 4.000');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    
+
+</body>
+</html>
