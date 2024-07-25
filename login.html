@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex relative">
+    <div class="absolute left-0 top-0 h-full w-1/2 bg-[url('public/images/background.jpg')] bg-cover bg-center"></div>
+    <div class="relative w-1/2 ml-auto flex flex-col items-center justify-center bg-[#004d40] text-white -mt-16">
+        <a href="login.html">
+            <img src="public/logo/KOLEKTIF.png" alt="Logo Baru" class="mb-4" style="width: 100px; height: auto;">
+        </a>
+        <img src="public/Kolektif_text/kolektif_font_white.png" alt="Kolektif" class="mb-7" style="width: 400px; height: auto;">
+        <div class="text-center p-8 bg-black bg-opacity-20 rounded-lg w-96">
+            <h1 class="text-2xl font-bold mb-2">Welcome Back <br>Teman Kolektif!</h1>
+            <p class="text-lg mb-4">“Fall seven times, get up eight”</p>
+            <form action="public/php/login.php" method="post" class="space-y-4">
+                <input type="text" placeholder="Username" name="username" required autocomplete="off" class="w-full p-2 bg-transparent border-b border-white focus:outline-none placeholder-white">
+                <input type="password" placeholder="Password" name="password" id="password" required autocomplete="off" class="w-full p-2 bg-transparent border-b border-white focus:outline-none placeholder-white">
+                <button type="button" onclick="togglePasswordVisibility()" class="text-white">Show</button>
+                <button type="submit" class="w-full bg-white text-black font-bold py-2 px-4 rounded hover:bg-opacity-90">LOG IN</button>
+            </form>
+            <a href="forgot_password.html" class="text-gray-400 hover:underline mt-2">Forgot password?</a>
+        </div>
+    </div>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('password');
+            var toggleButton = document.querySelector('button');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = 'Show';
+            }
+        }
+    </script>
+</body>
+</html>

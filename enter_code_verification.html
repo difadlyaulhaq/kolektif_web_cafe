@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Code Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex relative">
+    <div class="absolute left-0 top-0 h-full w-1/2 bg-cover bg-center" style="background-image: url('public/images/background.jpg')"></div>
+    <div class="relative w-1/2 ml-auto flex flex-col items-center justify-center bg-[#004d40] text-white -mt-16">
+        <a href="login.html">
+            <img src="public/logo/KOLEKTIF.png" alt="Logo Baru" class="mb-4" style="width: 100px; height: auto;">
+        </a>
+        <img src="public/Kolektif_text/kolektif_font_white.png" alt="Kolektif" class="mb-8" style="width: 400px; height: auto;">
+        <div class="bg-black bg-opacity-20 p-6 rounded-lg w-96">
+            <h1 class="text-2xl font-bold mb-2">Enter Verification Code</h1>
+            <p class="text-lg mb-4">We've sent a code to your email. Please enter it below.</p>
+            <form action="public/php/enter_code_verification.php" method="post" class="space-y-4">
+                <input type="text" placeholder="Verification Code" name="code" required class="w-full p-2 bg-transparent border-b border-white focus:outline-none placeholder-white text-white">
+                <button type="submit" class="w-full bg-white text-black font-bold py-2 px-4 rounded hover:bg-opacity-90">Verify Code</button>
+            </form>
+            <a href="forgot_password.html" class="text-white hover:underline mt-2">Didn't receive the code? Resend</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <?php
-include 'config.php'; // Include your database connection
+include 'config     .php'; // Include your database connection
 
 if (isset($_GET['room_id'])) {
     $room_id = $_GET['room_id'];
